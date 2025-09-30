@@ -20,12 +20,12 @@
 
 /* Agrupamento de inputs */
 .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     font-weight: bold;
     color: #000000;
     font-size: 0.9em;
@@ -46,8 +46,35 @@
     outline: none;
 }
 
-/* Botão de login */
-.login-button {
+.cad-group{
+    margin-bottom: 20px;
+}
+
+.cad-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #000000;
+    font-size: 0.9em;
+}
+
+.cad-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #000000; /* Borda clara */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    
+}
+
+.cad-group input:focus {
+    outline: none;
+}
+
+
+.cad-button {
     width: 100%;
     padding: 12px;
     background-color: #F25F5C; /* Cor primária azul */
@@ -61,46 +88,13 @@
     margin-top: 10px;
 }
 
-.login-button:active {
-    transform: scale(0.99);
-}
 
-/* Link de Esqueceu a senha */
-.forgot-password {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.0em;
-}
-
-.forgot-password a {
-    color: #D8D8C0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.forgot-password a:hover {
-    text-decoration: underline;
-}
-.cadastrar {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 1.2em;
-}
-
-.cadastrar a {
-    color: #D8D8C0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.cadastrar a:hover {
-    text-decoration: underline;
-}
 input[type="radio"] {
     width: 1.2em;
     height: 1.2em;
     /* Manter a cor de acento */
     accent-color: #F25F5C; 
+    margin-bottom: 20px;
 }
 
 /* Media Query para telas menores (mobile) */
