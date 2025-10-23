@@ -1,0 +1,120 @@
+
+
+/* Navbar */
+.navbar {
+  background-color: #030b18;
+  color: #f5eae4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fe0032;
+}
+
+.search-bar input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: 200px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #f5eae4;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #fe0032;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #313e60;
+}
+
+/* Perfil */
+.container {
+  padding: 40px;
+}
+
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.foto {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #313e60;
+}
+
+.dados h2 {
+  font-size: 1.5rem;
+  color: #f5eae4;
+}
+
+.dados p {
+  color: #f5eae4;
+}
+
+/* Cursos */
+.cursos h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #f5eae4;
+}
+
+.cursos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #313e60;
+  color: #f5eae4;
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(3, 11, 24, 0.3);
+  background-color: #fe0032;
+}
+
+.icone {
+  font-size: 2.2rem;
+}
