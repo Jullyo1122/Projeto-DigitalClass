@@ -20,7 +20,7 @@
   border: none;
   outline: none;
   width: 300px;
-  margin-right: 300px;
+  margin-right: 140px;
 }
 
 .menu {
@@ -82,6 +82,9 @@
   color: #f5eae4;
   font-size: 1.1rem;
 }
+.cursos{
+  margin-left: 50px;
+}
 
 /* Cursos */
 .cursos h3 {
@@ -93,14 +96,15 @@
 .cursos-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
+  cursor: pointer;
 }
 
 .card {
   background-color: #313e60;
   color: #f5eae4;
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 280px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -108,6 +112,7 @@
   justify-content: center;
   gap: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
 }
 
 .card:hover {
@@ -118,4 +123,8 @@
 
 .icone {
   font-size: 2.2rem;
+}
+.linha-final {
+  width: 50%;           
+  margin: 25px auto;    
 }
