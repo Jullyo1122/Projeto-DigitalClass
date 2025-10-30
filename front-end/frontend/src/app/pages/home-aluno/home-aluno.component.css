@@ -114,7 +114,14 @@
   transition: transform 0.3s, box-shadow 0.3s;
   margin-top: 20px;
 }
+.card img{
+  height: 50px;
+}
+.card h4{
+  font-size: 19px;
+  text-align: center;
 
+}
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(3, 11, 24, 0.3);
