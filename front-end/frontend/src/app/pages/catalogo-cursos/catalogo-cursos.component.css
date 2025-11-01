@@ -1,0 +1,41 @@
+.catalogo-container {
+  max-width: 1300px;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 540;
+  margin-bottom: 10px;
+  color: white;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.568);
+  margin-left: 20px;
+  
+}
+
+hr {
+  border: 2px solid #f30032;
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.grade-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.card {
+  width: 230px;
+  height: 250px;
+  background: linear-gradient(to bottom, #777 50%, #888 50%);
+  border-radius: 25px;
+}
