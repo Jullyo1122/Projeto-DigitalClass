@@ -20,6 +20,16 @@ h2 {
   
 }
 
+h3{
+  color: white;
+  text-align: center;
+}
+
+p{
+  color: white;
+  text-align: center;
+}
+
 hr {
   border: 2px solid #f30032;
   margin-bottom: 40px;
@@ -35,7 +45,7 @@ hr {
 
 .card {
   width: 230px;
-  height: 250px;
+  height: 280px;
   background: #313e60;
   border-radius: 25px;
 }
@@ -45,4 +55,14 @@ hr {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; 
+}
+
+.botao-de-matricula{
+  width: 150px;
+  height: 30px;
+  margin-left: 40px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f30032;
+  color: white;
 }

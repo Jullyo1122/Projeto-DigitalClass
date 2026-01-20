@@ -1,3 +1,5 @@
+# uvicorn main:app --reload
+
 from fastapi import APIRouter
 from pydantic import BaseModel
 
