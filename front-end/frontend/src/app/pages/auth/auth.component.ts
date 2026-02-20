@@ -31,9 +31,9 @@ export class AuthComponent {
     this.authService.login(dados).subscribe({
       next: (res: any) => {
         if (res.status === 'sucesso') {
-          if (res.role === 'aluno') {
+          if (res.role === 'A') {
             this.router.navigate(['/homealuno']);
-          } else if (res.role === 'professor') {
+          } else if (res.role === 'P') {
             this.router.navigate(['/catalogocursos']);
           }
         } else {
