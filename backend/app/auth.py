@@ -1,3 +1,5 @@
+#uvicorn main:app --reload
+
 from fastapi import APIRouter
 from pydantic import BaseModel
 from conexao import conectar
@@ -13,7 +15,6 @@ class Cadastro(BaseModel):
     email: str
     senha: str
     role: str
-
 
 @router.post("/login")
 def auth(dados: Login):
