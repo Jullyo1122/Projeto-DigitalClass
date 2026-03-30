@@ -1,8 +1,9 @@
 #uvicorn main:app --reload
 
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from conexao import conectar
+from security import create_acess_token, verify_password, get_password_hash
 
 router = APIRouter()
 
@@ -21,21 +22,31 @@ def auth(dados: Login):
     conexao = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-    query = "SELECT * FROM registros WHERE id = %s AND senha = %s"
-    cursor.execute(query, (dados.id, dados.senha))
+    query = "SELECT * FROM registros WHERE id = %s"
+    cursor.execute(query, (dados.id,))
     usuario = cursor.fetchone()
+    
 
     cursor.close()
     conexao.close()
 
-    if usuario:
-        return {
-            "status": "sucesso",
-            "mensagem": "Login realizado!",
-            "role": usuario["tipo"]
-        }
+    if not usuario or not verify_password(dados.senha, usuario["senha"]):
+        raise HTTPException(status_code=401, detail="Credenciais inválidas")
 
-    return {"status": "erro", "mensagem": "Usuário ou senha incorretos"}
+    
+    token = create_acess_token({
+            "user_id": usuario["id"]
+    })
+
+    return {
+            "status": "sucesso",
+            "role": usuario["role"],
+            "acess_token": token,
+            "token_type": "bearer",
+            "mensagem": "Login realizado!",
+     }
+
+
 
 
 @router.post("/cadastro")
@@ -46,16 +57,18 @@ def cad(dados: Cadastro):
     # Verifica se ID já existe
     cursor.execute("SELECT * FROM registros WHERE id = %s", (dados.id,))
     if cursor.fetchone():
-        return {"status": "erro", "mensagem": "ID já cadastrado"}
+        raise HTTPException(status_code=400, detail="ID já cadastrado")
 
     # Verifica se email já existe
     cursor.execute("SELECT * FROM registros WHERE email = %s", (dados.email,))
     if cursor.fetchone():
-        return {"status": "erro", "mensagem": "Email já cadastrado"}
+        raise HTTPException(status_code=400, detail="email já cadastrado")
+    
 
     # Insere usuário
+    senha_hash = get_password_hash(dados.senha)
     query = "INSERT INTO registros (id, email, senha, role) VALUES (%s, %s, %s, %s)"
-    cursor.execute(query, (dados.id, dados.email, dados.senha, dados.role))
+    cursor.execute(query, (dados.id, dados.email, senha_hash, dados.role))
     conexao.commit()
 
     cursor.close()
