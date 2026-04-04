@@ -11,10 +11,14 @@ export class AuthService {
   private url = environment.api;
 
   constructor(private http: HttpClient) {}
+
   login(dados: any) {
     return this.http.post(
       `${this.url}/auth/login`,
       dados
     );
+  }
+  cad(dados:any) {
+    return this.http.post(`${this.url}/auth/cad`,dados);
   }
 }

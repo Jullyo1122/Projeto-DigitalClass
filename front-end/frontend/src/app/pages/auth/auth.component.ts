@@ -30,11 +30,15 @@ export class AuthComponent {
     };
     this.authService.login(dados).subscribe({
       next: (res: any) => {
-        if (res.status === 'sucesso') {
+        if (res.access_token) {
+          localStorage.setItem('access_token', res.access_token);
           if (res.role === 'A') {
+
             this.router.navigate(['/homealuno']);
+            alert('Login realizado com sucesso 🚀');
           } else if (res.role === 'P') {
             this.router.navigate(['/catalogocursos']);
+            alert('Login realizado com sucesso 🚀');
           }
         } else {
           alert(res.mensagem);

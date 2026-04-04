@@ -40,14 +40,11 @@ def auth(dados: Login):
 
     return {
             "status": "sucesso",
-            "role": usuario["role"],
+            "tipo": usuario["tipo"],
             "acess_token": token,
             "token_type": "bearer",
             "mensagem": "Login realizado!",
      }
-
-
-
 
 @router.post("/cadastro")
 def cad(dados: Cadastro):
@@ -67,7 +64,7 @@ def cad(dados: Cadastro):
 
     # Insere usuário
     senha_hash = get_password_hash(dados.senha)
-    query = "INSERT INTO registros (id, email, senha, role) VALUES (%s, %s, %s, %s)"
+    query = "INSERT INTO registros (id, email, senha, tipo) VALUES (%s, %s, %s, %s)"
     cursor.execute(query, (dados.id, dados.email, senha_hash, dados.role))
     conexao.commit()
 
