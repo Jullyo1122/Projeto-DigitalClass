@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './auth.component.css'
 })
 export class AuthComponent {
-  id!: number;
+  email!: string;
   senha!: string;
   role!: string;
 
@@ -24,7 +24,7 @@ export class AuthComponent {
 
   login(){
     const dados = {
-      id: this.id,
+      email: this.email,
       senha: this.senha,
       role: this.role
     };

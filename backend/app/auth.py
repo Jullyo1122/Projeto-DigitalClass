@@ -8,11 +8,11 @@ from security import create_acess_token, verify_password, get_password_hash
 router = APIRouter()
 
 class Login(BaseModel):
-    id: int
+    email: str
     senha: str
 
 class Cadastro(BaseModel):
-    id: int
+    nome: str
     email: str
     senha: str
     role: str
@@ -22,8 +22,8 @@ def auth(dados: Login):
     conexao = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-    query = "SELECT * FROM registros WHERE id = %s"
-    cursor.execute(query, (dados.id,))
+    query = "SELECT * FROM registros WHERE email = %s"
+    cursor.execute(query, (dados.email,))
     usuario = cursor.fetchone()
     
 
@@ -51,10 +51,6 @@ def cad(dados: Cadastro):
     conexao = conectar()
     cursor = conexao.cursor(dictionary=True)
 
-    # Verifica se ID já existe
-    cursor.execute("SELECT * FROM registros WHERE id = %s", (dados.id,))
-    if cursor.fetchone():
-        raise HTTPException(status_code=400, detail="ID já cadastrado")
 
     # Verifica se email já existe
     cursor.execute("SELECT * FROM registros WHERE email = %s", (dados.email,))
@@ -64,8 +60,8 @@ def cad(dados: Cadastro):
 
     # Insere usuário
     senha_hash = get_password_hash(dados.senha)
-    query = "INSERT INTO registros (id, email, senha, tipo) VALUES (%s, %s, %s, %s)"
-    cursor.execute(query, (dados.id, dados.email, senha_hash, dados.role))
+    query = "INSERT INTO registros (nome, email, senha, tipo) VALUES (%s, %s, %s, %s)"
+    cursor.execute(query, (dados.nome, dados.email, senha_hash, dados.role))
     conexao.commit()
 
     cursor.close()
