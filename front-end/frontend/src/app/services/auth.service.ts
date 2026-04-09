@@ -19,6 +19,6 @@ export class AuthService {
     );
   }
   cad(dados:any) {
-    return this.http.post(`${this.url}/auth/cad`,dados);
+    return this.http.post(`${this.url}/auth/cadastro`,dados);
   }
 }

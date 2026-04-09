@@ -13,10 +13,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './auth.component.css'
 })
 export class AuthComponent {
+  nome!: string;
   email!: string;
   senha!: string;
   role!: string;
-
+  
   constructor(
     private authService: AuthService,
     private router: Router
@@ -47,6 +48,6 @@ export class AuthComponent {
       error: () => {
         alert('Erro ao conectar com o servidor');
       }
-    });
+    }); 
   }
 }
