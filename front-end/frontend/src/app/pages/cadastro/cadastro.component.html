@@ -3,20 +3,20 @@
             <h2>Cadastro</h2>
             <div class="cad-group">
                 <label for="nome">Nome</label>
-                <input type="text" id="email-" [(ngModel)]="nome">
+                <input type="text" name="nome" id="email" [(ngModel)]="nome">
             </div>
             <div class="cad-group">
                 <label for="email">E-mail</label>
-                <input type="text" id="email-" placeholder="abc123@gmail.com" [(ngModel)]="email">
+                <input type="text" name="email" id="email" placeholder="abc123@gmail.com" [(ngModel)]="email">
             </div>
             <div class="input-group">
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="password" placeholder="••••••••" required [(ngModel)]="senha">
             </div>
             <div class="input-group22">
-                <input type="radio" id="professor-radio" name="tipo-usuario" value="professor" [(ngModel)]="role" >
+                <input type="radio" id="professor-radio" name="tipo-usuario" value="P" [(ngModel)]="tipo" >
                 <label for="professor-radio">Professor</label>
-                <input type="radio" id="aluno-radio" name="tipo-usuario" value="aluno" [(ngModel)]="role"  >
+                <input type="radio" id="aluno-radio" name="tipo-usuario" value="A" [(ngModel)]="tipo"  >
                 <label for="aluno-radio">Aluno</label>
             </div>
             <button type="submit" class="cad-button">Cadastrar</button>

@@ -15,7 +15,7 @@ class Cadastro(BaseModel):
     nome: str
     email: str
     senha: str
-    role: str
+    tipo: str
 
 @router.post("/login")
 def auth(dados: Login):
@@ -61,7 +61,7 @@ def cad(dados: Cadastro):
     # Insere usuário
     senha_hash = get_password_hash(dados.senha)
     query = "INSERT INTO registros (nome, email, senha, tipo) VALUES (%s, %s, %s, %s)"
-    cursor.execute(query, (dados.nome, dados.email, senha_hash, dados.role))
+    cursor.execute(query, (dados.nome, dados.email, senha_hash, dados.tipo))
     conexao.commit()
 
     cursor.close()

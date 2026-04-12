@@ -15,7 +15,7 @@ export class CadastroComponent {
   nome!: string;
   email!: string;
   senha!: string;
-  role!: string;
+  tipo!: string;
 
   constructor(
     private authService: AuthService,
@@ -27,7 +27,7 @@ export class CadastroComponent {
       nome: this.nome,
       email: this.email,
       senha: this.senha,
-      role: this.role
+      tipo: this.tipo
     }
     this.authService.cad(dados).subscribe({
       next: (res: any) => {
@@ -45,5 +45,6 @@ export class CadastroComponent {
         }
       }
     })
+    console.log(dados);
   }
 }
