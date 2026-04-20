@@ -63,6 +63,16 @@ hr {
   margin-left: 40px;
   border-radius: 5px;
   border: none;
-  background-color: #f30032;
+  background-color: #007bff;
   color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-de-matricula:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.botao-de-matricula:active {
+  transform: translateY(0);
 }
